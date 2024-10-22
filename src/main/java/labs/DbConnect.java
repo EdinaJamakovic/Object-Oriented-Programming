@@ -1,7 +1,6 @@
 package labs;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.sql.*;
 
 public class DbConnect {
@@ -101,7 +100,7 @@ public class DbConnect {
 
     public static void main(String[] args) {
         DbConnect newConnection = new DbConnect();
-        newConnection.createTask(5, "Read a book", Status.TO_DO);
+        newConnection.createTask(6, "Read a book", Status.TO_DO);
         newConnection.updateTaskDescription(2, "Prepare for the upcoming exam");
         List<DataStructures.TaskItem> tasks = newConnection.getAllTasks();
         for (DataStructures.TaskItem task : tasks) {

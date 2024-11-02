@@ -26,8 +26,6 @@ public class Person {
         return this.country;
     }
 
-
-
     public String toString(){
         return this.name + "\n   " +  this.adress;
     }

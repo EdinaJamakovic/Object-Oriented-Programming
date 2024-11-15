@@ -42,11 +42,12 @@ public class DbConnect {
     }
 
     public DataStructures.TaskItem getByTaskId(int id){
-        String query = "SELECT * FROM tasks WHERE id = ? ";
+        String query = "SELECT * FROM tasks WHERE id = ?";
         DataStructures.TaskItem task = null;
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
+            statement.setString(2, "string");
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                     task = new DataStructures.TaskItem(
@@ -61,6 +62,7 @@ public class DbConnect {
         }
         return task;
     }
+
 
     public void createTask(int id, String description, Status status) {
         String query = "INSERT INTO tasks (id, task_description, task_status) VALUES (?, ?, ?)";
@@ -100,7 +102,7 @@ public class DbConnect {
 
     public static void main(String[] args) {
         DbConnect newConnection = new DbConnect();
-        newConnection.createTask(6, "Read a book", Status.TO_DO);
+        newConnection.createTask(7, "Read a book", Status.TO_DO);
         newConnection.updateTaskDescription(2, "Prepare for the upcoming exam");
         List<DataStructures.TaskItem> tasks = newConnection.getAllTasks();
         for (DataStructures.TaskItem task : tasks) {
@@ -109,4 +111,6 @@ public class DbConnect {
     }
 
 }
+
+
 

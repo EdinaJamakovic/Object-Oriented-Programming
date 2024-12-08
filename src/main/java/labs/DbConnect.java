@@ -47,7 +47,6 @@ public class DbConnect {
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);
-            statement.setString(2, "string");
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                     task = new DataStructures.TaskItem(

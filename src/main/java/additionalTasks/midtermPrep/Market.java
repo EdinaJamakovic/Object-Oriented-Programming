@@ -109,7 +109,7 @@ class Honey extends Item{
 
 }
 
-    class Order<T extends Item & Sellable>{
+    class Order<T extends Item>{
         //no need to add "T extends Sellable" because if it extends Item it has to implement sellable
         private String orderNo;
         private Date createAt;
